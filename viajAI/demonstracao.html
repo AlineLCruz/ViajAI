@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstração - ViajAI</title>
+    <link rel="stylesheet" href="estilos/principal.css">
+    <link rel="stylesheet" href="estilos/demonstracao.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <div class="topbar">
+        <div class="container">
+            <a href="indice.html" class="logo">
+                <img src="imagens/logo.png" alt="ViajAI" class="logo-image">
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <nav class="nav">
+                    <a href="indice.html" class="nav-link">Voltar ao Início</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn-primary" onclick="window.location.href='criar.html'">Criar Roteiro</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero da Demonstração -->
+    <section class="demo-hero">
+        <div class="container">
+            <h1>🎬 Veja o ViajAI em Ação</h1>
+            <p>Explore como nossa inteligência artificial cria roteiros personalizados em segundos</p>
+        </div>
+    </section>
+
+    <!-- Demonstração Interativa -->
+    <section class="demo-section">
+        <div class="container">
+            <div class="demo-wrapper">
+                <!-- Painel de Entrada -->
+                <div class="demo-input-panel">
+                    <h2>📝 Preencha os Dados</h2>
+                    <form id="demoForm">
+                        <div class="form-group">
+                            <label>Destino</label>
+                            <select id="demoDestino">
+                                <option value="">Escolha um destino...</option>
+                                <option value="Paris, França">🗼 Paris, França</option>
+                                <option value="Rio de Janeiro, Brasil">🏖️ Rio de Janeiro, Brasil</option>
+                                <option value="Tóquio, Japão">🗾 Tóquio, Japão</option>
+                                <option value="Barcelona, Espanha">🏛️ Barcelona, Espanha</option>
+                                <option value="Nova York, EUA">🗽 Nova York, EUA</option>
+                                <option value="Bali, Indonésia">🏝️ Bali, Indonésia</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Duração da Viagem</label>
+                            <div class="duration-buttons">
+                                <button type="button" class="duration-btn" data-days="3">3 dias</button>
+                                <button type="button" class="duration-btn" data-days="5">5 dias</button>
+                                <button type="button" class="duration-btn" data-days="7">7 dias</button>
+                                <button type="button" class="duration-btn" data-days="10">10 dias</button>
+                            </div>
+                            <input type="hidden" id="demoDuracao" value="">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Seus Interesses</label>
+                            <div class="interests-grid">
+                                <label class="interest-btn">
+                                    <input type="checkbox" name="interesses" value="cultura">
+                                    <span>🏛️ Cultura</span>
+                                </label>
+                                <label class="interest-btn">
+                                    <input type="checkbox" name="interesses" value="gastronomia">
+                                    <span>🍽️ Gastronomia</span>
+                                </label>
+                                <label class="interest-btn">
+                                    <input type="checkbox" name="interesses" value="natureza">
+                                    <span>🌿 Natureza</span>
+                                </label>
+                                <label class="interest-btn">
+                                    <input type="checkbox" name="interesses" value="aventura">
+                                    <span>🧗 Aventura</span>
+                                </label>
+                                <label class="interest-btn">
+                                    <input type="checkbox" name="interesses" value="praia">
+                                    <span>🏖️ Praia</span>
+                                </label>
+                                <label class="interest-btn">
+                                    <input type="checkbox" name="interesses" value="compras">
+                                    <span>🛍️ Compras</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-large">✨ Gerar Roteiro Demo</button>
+                    </form>
+                </div>
+
+                <!-- Painel de Resultado -->
+                <div class="demo-output-panel">
+                    <div id="demoOutput" class="demo-output hidden">
+                        <h2>📋 Seu Roteiro Personalizado</h2>
+                        <div class="itinerary-header">
+                            <h3 id="demoDestinoTitle"></h3>
+                            <p id="demoDuracaoInfo"></p>
+                        </div>
+
+                        <div id="demoItinerary" class="itinerary-days">
+                            <!-- Dias serão inseridos aqui -->
+                        </div>
+
+                        <div class="demo-hotels">
+                            <h3>🏨 Hospedagens Recomendadas</h3>
+                            <div id="demoHotels" class="hotels-grid">
+                                <!-- Hotéis serão inseridos aqui -->
+                            </div>
+                        </div>
+
+                        <div class="demo-actions">
+                            <button class="btn-secondary" onclick="document.getElementById('demoForm').reset(); document.getElementById('demoOutput').classList.add('hidden');">Voltar</button>
+                            <button class="btn-primary" onclick="window.location.href='criar.html'">Criar Meu Roteiro</button>
+                        </div>
+                    </div>
+
+                    <div id="demoPlaceholder" class="demo-placeholder">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">🗺️</div>
+                            <p>Preencha os dados ao lado e clique em "Gerar Roteiro Demo" para ver a magia acontecer!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exemplos de Roteiros -->
+    <section class="examples-section">
+        <div class="container">
+            <h2>📚 Exemplos de Roteiros Gerados</h2>
+            <p class="section-subtitle">Veja alguns roteiros que nossos usuários já criaram</p>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-header">
+                        <h3>🗼 Paris em 5 Dias</h3>
+                        <span class="example-tag">Cultura & Gastronomia</span>
+                    </div>
+                    <div class="example-preview">
+                        <p><strong>Dia 1:</strong> Chegada, Eiffel Tower, Trocadéro</p>
+                        <p><strong>Dia 2:</strong> Museu do Louvre, Catedral de Notre-Dame</p>
+                        <p><strong>Dia 3:</strong> Champs-Élysées, Arc do Triunfo</p>
+                        <p><strong>Dia 4:</strong> Versailles, Jardins</p>
+                        <p><strong>Dia 5:</strong> Montmartre, Sacré-Cœur</p>
+                    </div>
+                    <button class="btn-secondary" onclick="loadExample('Paris, França', 5, ['cultura', 'gastronomia'])">Ver Completo</button>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-header">
+                        <h3>🏖️ Rio de Janeiro em 7 Dias</h3>
+                        <span class="example-tag">Praia & Natureza</span>
+                    </div>
+                    <div class="example-preview">
+                        <p><strong>Dia 1:</strong> Chegada, Copacabana</p>
+                        <p><strong>Dia 2:</strong> Cristo Redentor, Pão de Açúcar</p>
+                        <p><strong>Dia 3:</strong> Praia de Ipanema</p>
+                        <p><strong>Dia 4:</strong> Floresta da Tijuca</p>
+                        <p><strong>Dia 5:</strong> Lagoa Rodrigo de Freitas</p>
+                    </div>
+                    <button class="btn-secondary" onclick="loadExample('Rio de Janeiro, Brasil', 7, ['praia', 'natureza'])">Ver Completo</button>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-header">
+                        <h3>🗾 Tóquio em 10 Dias</h3>
+                        <span class="example-tag">Cultura & Aventura</span>
+                    </div>
+                    <div class="example-preview">
+                        <p><strong>Dia 1:</strong> Chegada, Shibuya</p>
+                        <p><strong>Dia 2:</strong> Templo Senso-ji, Asakusa</p>
+                        <p><strong>Dia 3:</strong> Palácio Imperial</p>
+                        <p><strong>Dia 4:</strong> Akihabara, Tecnologia</p>
+                        <p><strong>Dia 5:</strong> Fuji-san (Monte Fuji)</p>
+                    </div>
+                    <button class="btn-secondary" onclick="loadExample('Tóquio, Japão', 10, ['cultura', 'aventura'])">Ver Completo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-demo">
+        <div class="container">
+            <h2>✨ Por que escolher ViajAI?</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-number">1</div>
+                    <h3>Roteiros Personalizados</h3>
+                    <p>Cada roteiro é único, criado especificamente para seus interesses e orçamento</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">2</div>
+                    <h3>Gerado em Segundos</h3>
+                    <p>Não perca mais horas pesquisando. Nossa IA cria roteiros completos instantaneamente</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">3</div>
+                    <h3>Recomendações Inteligentes</h3>
+                    <p>Restaurantes, hotéis e atividades selecionadas com base em análise de dados</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">4</div>
+                    <h3>Salve e Compartilhe</h3>
+                    <p>Guarde seus roteiros favoritos e compartilhe com amigos por link</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">5</div>
+                    <h3>Totalmente Gratuito</h3>
+                    <p>Crie quantos roteiros quiser sem pagar nada</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-number">6</div>
+                    <h3>Sempre Disponível</h3>
+                    <p>Acesse de qualquer lugar, a qualquer hora, em qualquer dispositivo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-final">
+        <div class="container">
+            <h2>Pronto para criar seu roteiro?</h2>
+            <p>Comece agora e descubra seus próximos destinos incríveis</p>
+            <button class="btn-primary btn-large" onclick="window.location.href='criar.html'">🚀 Criar Meu Roteiro</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <img src="imagens/logo.png" alt="ViajAI" class="logo-image-footer">
+                    </div>
+                    <p>© 2024 VIAJAI. O SEU CONCIERGE DIGITAL</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <a href="indice.html">Início</a>
+                    <a href="demonstracao.html">Demonstração</a>
+                    <a href="criar.html">Criar Roteiro</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/demonstracao.js"></script>
+    <script src="js/menu-mobile.js"></script>
+</body>
+</html>

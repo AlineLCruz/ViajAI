@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Roteiro - ViajAI</title>
+    <link rel="stylesheet" href="estilos/principal.css">
+    <link rel="stylesheet" href="estilos/criar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <div class="topbar">
+        <div class="container">
+            <a href="indice.html" class="logo">
+                <img src="imagens/logo.png" alt="ViajAI" class="logo-image">
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <nav class="nav">
+                    <a href="indice.html" class="nav-link">Início</a>
+                    <a href="painel.html" class="nav-link">Meus Roteiros</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn-login" id="btnLogin">Entrar</button>
+                    <button class="btn-cadastro" id="btnCadastro">Cadastro</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container create-container">
+        <div class="create-wrapper">
+            <!-- Sidebar com Progresso -->
+            <aside class="create-sidebar">
+                <p class="mobile-step-text" id="mobileStepText"></p>
+                <div class="progress-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Destino</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Duração</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Interesses</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Orçamento</div>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step" data-step="5">
+                        <div class="step-number">5</div>
+                        <div class="step-label">Gerar</div>
+                    </div>
+                </div>
+
+                <div class="sidebar-info">
+                    <h3>💡 Dica</h3>
+                    <p>Quanto mais detalhes você fornecer, melhor será seu roteiro personalizado!</p>
+                </div>
+            </aside>
+
+            <!-- Conteúdo Principal -->
+            <main class="create-content">
+                <form id="createForm" class="create-form">
+                    <!-- Step 1: Destino -->
+                    <div class="form-step active" data-step="1">
+                        <h2>Qual é seu destino?</h2>
+                        <p class="step-subtitle">Digite o nome da cidade, país ou região que deseja visitar.</p>
+                        
+                        <div class="form-group">
+                            <label for="destino">Destino *</label>
+                            <input type="text" id="destino" name="destino" placeholder="Ex: Paris, Rio de Janeiro, Tóquio..." required>
+                            <div class="suggestions" id="suggestions"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="origem">De onde você sai? *</label>
+                            <input type="text" id="origem" name="origem" placeholder="Ex: Brusque, SC" autocomplete="off">
+                            <small class="campo-ajuda">Usamos para planejar a chegada, a volta e o deslocamento.</small>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" onclick="window.location.href='indice.html'">Cancelar</button>
+                            <button type="button" class="btn-primary next-step" data-next="2">Próximo</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Duração -->
+                    <div class="form-step" data-step="2">
+                        <h2>Quantos dias você tem disponível?</h2>
+                        <p class="step-subtitle">Informe a duração exata da viagem e quantas pessoas vão viajar.</p>
+
+                        <div class="form-group">
+                            <label for="duracaoDias">Quantos dias de viagem? * <small>(até 15)</small></label>
+                            <input type="number" id="duracaoDias" name="duracaoDias" min="1" max="15" step="1" placeholder="Ex: 7" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="qtdPessoas">Quantas pessoas vão viajar? *</label>
+                            <input type="number" id="qtdPessoas" name="qtdPessoas" min="1" max="50" placeholder="Ex: 2" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dataInicio">Data de início</label>
+                                <input type="date" id="dataInicio" name="dataInicio">
+                            </div>
+                            <div class="form-group">
+                                <label for="dataFim">Data de término</label>
+                                <input type="date" id="dataFim" name="dataFim">
+                            </div>
+                        </div>
+                        <p class="dica-datas" id="dicaDatas" aria-live="polite">Opcional. Ao escolher a data de início, a de término é preenchida pela duração.</p>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary prev-step" data-prev="1">Voltar</button>
+                            <button type="button" class="btn-primary next-step" data-next="3">Próximo</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Interesses -->
+                    <div class="form-step" data-step="3">
+                        <h2>Quais são seus interesses?</h2>
+                        <p class="step-subtitle">Selecione um ou mais interesses para personalizar melhor seu roteiro.</p>
+                        
+                        <div class="interests-grid">
+                            <label class="interest-checkbox">
+                                <input type="checkbox" name="interesses" value="cultura">
+                                <span class="interest-label">
+                                    <span class="interest-icon">🏛️</span>
+                                    <span class="interest-name">Cultura</span>
+                                </span>
+                            </label>
+                            <label class="interest-checkbox">
+                                <input type="checkbox" name="interesses" value="gastronomia">
+                                <span class="interest-label">
+                                    <span class="interest-icon">🍽️</span>
+                                    <span class="interest-name">Gastronomia</span>
+                                </span>
+                            </label>
+                            <label class="interest-checkbox">
+                                <input type="checkbox" name="interesses" value="natureza">
+                                <span class="interest-label">
+                                    <span class="interest-icon">🌿</span>
+                                    <span class="interest-name">Natureza</span>
+                                </span>
+                            </label>
+                            <label class="interest-checkbox">
+                                <input type="checkbox" name="interesses" value="aventura">
+                                <span class="interest-label">
+                                    <span class="interest-icon">🧗</span>
+                                    <span class="interest-name">Aventura</span>
+                                </span>
+                            </label>
+                            <label class="interest-checkbox">
+                                <input type="checkbox" name="interesses" value="compras">
+                                <span class="interest-label">
+                                    <span class="interest-icon">🛍️</span>
+                                    <span class="interest-name">Compras</span>
+                                </span>
+                            </label>
+                            <label class="interest-checkbox">
+                                <input type="checkbox" name="interesses" value="praia">
+                                <span class="interest-label">
+                                    <span class="interest-icon">🏖️</span>
+                                    <span class="interest-name">Praia</span>
+                                </span>
+                            </label>
+                            <label class="interest-checkbox">
+                                <input type="checkbox" name="interesses" value="musica">
+                                <span class="interest-label">
+                                    <span class="interest-icon">🎵</span>
+                                    <span class="interest-name">Música</span>
+                                </span>
+                            </label>
+                            <label class="interest-checkbox">
+                                <input type="checkbox" name="interesses" value="arte">
+                                <span class="interest-label">
+                                    <span class="interest-icon">🎨</span>
+                                    <span class="interest-name">Arte</span>
+                                </span>
+                            </label>
+                            <label class="interest-checkbox">
+                                <input type="checkbox" name="interesses" value="fotografia">
+                                <span class="interest-label">
+                                    <span class="interest-icon">📸</span>
+                                    <span class="interest-name">Fotografia</span>
+                                </span>
+                            </label>
+                            <label class="interest-checkbox">
+                                <input type="checkbox" name="interesses" value="esportes">
+                                <span class="interest-label">
+                                    <span class="interest-icon">⚽</span>
+                                    <span class="interest-name">Esportes</span>
+                                </span>
+                            </label>
+                            <label class="interest-checkbox">
+                                <input type="checkbox" name="interesses" value="bem-estar">
+                                <span class="interest-label">
+                                    <span class="interest-icon">🧘</span>
+                                    <span class="interest-name">Bem-estar</span>
+                                </span>
+                            </label>
+                            <label class="interest-checkbox">
+                                <input type="checkbox" name="interesses" value="noturna">
+                                <span class="interest-label">
+                                    <span class="interest-icon">🌙</span>
+                                    <span class="interest-name">Vida Noturna</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary prev-step" data-prev="2">Voltar</button>
+                            <button type="button" class="btn-primary next-step" data-next="4">Próximo</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Orçamento -->
+                    <div class="form-step" data-step="4">
+                        <h2>Qual é o seu orçamento?</h2>
+                        <p class="step-subtitle">Isso ajuda a IA a sugerir hospedagens, restaurantes e passeios compatíveis.</p>
+
+                        <div class="budget-options">
+                            <label class="budget-option">
+                                <input type="radio" name="orcamento" value="economico">
+                                <span class="option-content">
+                                    <span class="option-title">💸 Econômico</span>
+                                    <span class="option-desc">Prioriza custo-benefício</span>
+                                </span>
+                            </label>
+                            <label class="budget-option">
+                                <input type="radio" name="orcamento" value="moderado" checked>
+                                <span class="option-content">
+                                    <span class="option-title">💰 Moderado</span>
+                                    <span class="option-desc">Equilíbrio entre conforto e preço</span>
+                                </span>
+                            </label>
+                            <label class="budget-option">
+                                <input type="radio" name="orcamento" value="luxo">
+                                <span class="option-content">
+                                    <span class="option-title">💎 Luxo</span>
+                                    <span class="option-desc">Experiências premium</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 1.5rem;">
+                            <label for="orcamentoValor">Quanto o grupo pretende gastar? (R$) <small>opcional</small></label>
+                            <input type="number" id="orcamentoValor" name="orcamentoValor" min="0" step="100" placeholder="Ex: 5000">
+                            <small class="campo-ajuda">Valor total do grupo para passeios, comida e transporte local (sem passagem e sem hospedagem). Com ele, o roteiro mostra custos estimados e tenta ficar dentro do limite.</small>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary prev-step" data-prev="3">Voltar</button>
+                            <button type="button" class="btn-primary next-step" data-next="5">Próximo</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Resumo e Gerar -->
+                    <div class="form-step" data-step="5">
+                        <h2>Pronto para gerar seu roteiro?</h2>
+                        <p class="step-subtitle">Confira se está tudo certo antes de gerar seu roteiro.</p>
+                        
+                        <div class="summary-card">
+                            <h3>Resumo da sua viagem</h3>
+
+                            <div class="summary-item">
+                                <span class="summary-label">Destino:</span>
+                                <span class="summary-value" id="summaryDestino">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Saindo de:</span>
+                                <span class="summary-value" id="summaryOrigem">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Duração:</span>
+                                <span class="summary-value" id="summaryDuracao">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Pessoas:</span>
+                                <span class="summary-value" id="summaryPessoas">-</span>
+                            </div>
+                            <div class="summary-item" id="summaryPeriodoWrapper">
+                                <span class="summary-label">Período:</span>
+                                <span class="summary-value" id="summaryPeriodo">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Interesses:</span>
+                                <span class="summary-value" id="summaryInteresses">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Orçamento:</span>
+                                <span class="summary-value" id="summaryOrcamento">-</span>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary prev-step" data-prev="4">Voltar</button>
+                            <button type="submit" class="btn-primary" id="btnGenerate">
+                                <span id="generateText">✨ Gerar Roteiro</span>
+                                <span id="generateLoader" class="hidden">Gerando...</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal de Entrar/Cadastro -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="authContainer"></div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script src="js/config-firebase.js"></script>
+    <script src="js/config-openai.js"></script>
+    <script src="js/autenticacao.js"></script>
+    <script src="js/lugares-reais.js"></script>
+    <script src="js/criar.js"></script>
+    <script src="js/menu-mobile.js"></script>
+</body>
+</html>

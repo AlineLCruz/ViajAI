@@ -1,0 +1,496 @@
+/* Demonstração - Estilos */
+
+.demo-hero {
+    background: linear-gradient(135deg, #2D8659 0%, #B85C1F 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.demo-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.demo-hero p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+/* Seção de Demonstração */
+.demo-section {
+    padding: 4rem 0;
+    background: #f9f9f9;
+}
+
+.demo-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.demo-input-panel,
+.demo-output-panel {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.demo-input-panel h2,
+.demo-output-panel h2 {
+    margin-bottom: 1.5rem;
+    color: #2D8659;
+    font-size: 1.5rem;
+}
+
+/* Form Groups */
+.demo-input-panel .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.demo-input-panel label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.demo-input-panel select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.demo-input-panel select:focus {
+    outline: none;
+    border-color: #B85C1F;
+    box-shadow: 0 0 0 3px rgba(184, 92, 31, 0.1);
+}
+
+/* Duration Buttons */
+.duration-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.duration-btn {
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.duration-btn:hover {
+    border-color: #B85C1F;
+    color: #B85C1F;
+}
+
+.duration-btn.active {
+    background: #B85C1F;
+    color: white;
+    border-color: #B85C1F;
+}
+
+/* Interests Grid */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.interest-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.interest-btn input {
+    display: none;
+}
+
+.interest-btn:hover {
+    border-color: #2D8659;
+    background: #f0f8f4;
+}
+
+.interest-btn input:checked + span {
+    color: white;
+}
+
+.interest-btn input:checked {
+    display: none;
+}
+
+.interest-btn input:checked ~ span {
+    color: white;
+}
+
+.interest-btn:has(input:checked) {
+    background: #2D8659;
+    border-color: #2D8659;
+    color: white;
+}
+
+/* Demo Output */
+.demo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    background: linear-gradient(135deg, #f0f8f4 0%, #fff5f0 100%);
+    border-radius: 16px;
+    border: 2px dashed #2D8659;
+}
+
+.placeholder-content {
+    text-align: center;
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.placeholder-content p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.demo-output.hidden {
+    display: none;
+}
+
+.itinerary-header {
+    background: linear-gradient(135deg, #2D8659 0%, #B85C1F 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.itinerary-header h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.itinerary-header p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Itinerary Days */
+.itinerary-days {
+    margin-bottom: 2rem;
+}
+
+.day-item {
+    background: #f9f9f9;
+    border-left: 4px solid #B85C1F;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.day-item:hover {
+    box-shadow: 0 4px 12px rgba(184, 92, 31, 0.15);
+}
+
+.day-item h4 {
+    color: #B85C1F;
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+}
+
+.day-item p {
+    margin: 0.5rem 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Hotels Grid */
+.demo-hotels {
+    margin-bottom: 2rem;
+}
+
+.demo-hotels h3 {
+    color: #2D8659;
+    margin-bottom: 1rem;
+}
+
+.hotels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.hotel-card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.hotel-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-card h5 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+}
+
+.hotel-card p {
+    margin: 0.25rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.hotel-rating {
+    color: #B85C1F;
+    margin-top: 0.5rem;
+}
+
+/* Demo Actions */
+.demo-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.demo-actions button {
+    flex: 1;
+}
+
+/* Examples Section */
+.examples-section {
+    padding: 4rem 0;
+    background: white;
+}
+
+.examples-section h2 {
+    text-align: center;
+    color: #2D8659;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.example-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.example-card:hover {
+    border-color: #B85C1F;
+    box-shadow: 0 8px 24px rgba(184, 92, 31, 0.15);
+    transform: translateY(-4px);
+}
+
+.example-header {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.example-header h3 {
+    margin: 0;
+    color: #2D8659;
+    font-size: 1.2rem;
+}
+
+.example-tag {
+    background: #f0f8f4;
+    color: #2D8659;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.example-preview {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.example-preview p {
+    margin: 0.5rem 0;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.example-preview strong {
+    color: #2D8659;
+}
+
+/* Features Demo */
+.features-demo {
+    padding: 4rem 0;
+    background: #f9f9f9;
+}
+
+.features-demo h2 {
+    text-align: center;
+    color: #2D8659;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+}
+
+.features-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.feature-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.feature-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #2D8659 0%, #B85C1F 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem;
+}
+
+.feature-item h3 {
+    color: #2D8659;
+    margin-bottom: 0.75rem;
+}
+
+.feature-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .demo-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .duration-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .interests-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .examples-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hotels-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .demo-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .demo-hero p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .demo-input-panel,
+    .demo-output-panel {
+        padding: 1.5rem;
+    }
+
+    .duration-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .interests-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .examples-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hotels-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-list {
+        grid-template-columns: 1fr;
+    }
+
+    .demo-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .demo-actions {
+        flex-direction: column;
+    }
+}

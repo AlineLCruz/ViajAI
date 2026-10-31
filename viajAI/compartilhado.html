@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Confira meu roteiro de viagem!">
+    <meta property="og:description" content="Gerado com IA pela ViajAI">
+    <meta property="og:image" content="imagens/logo.png">
+    <title>Roteiro Compartilhado - ViajAI</title>
+   <link rel="stylesheet" href="estilos/principal.css">
+<link rel="stylesheet" href="estilos/resultado.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="indice.html" class="logo">
+                    <img src="imagens/logo.png" alt="ViajAI" class="logo-image">
+                </a>
+                <nav class="nav">
+                    <a href="indice.html" class="nav-link">Início</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn-primary" id="btnCreateOwn">Criar meu roteiro</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container result-container">
+        <div class="result-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>COMPARTILHADO POR</h3>
+                    <div id="sharedByInfo" style="padding: 12px 0;">
+                        <p style="font-size: 14px; color: var(--text-primary); margin: 0;">Um viajante ViajAI</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>INTERESSES</h3>
+                    <div class="interests-chips" id="interestChips"></div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>AÇÕES</h3>
+                    <button class="btn-secondary" style="width: 100%; margin-bottom: 12px;" id="btnSaveToMyAccount">
+                        💾 Salvar na minha conta
+                    </button>
+                    <button class="btn-secondary" style="width: 100%;" id="btnShareAgain">
+                        📤 Compartilhar novamente
+                    </button>
+                </div>
+
+                <div class="upgrade-card">
+                    <h4>Crie seus próprios roteiros</h4>
+                    <p>Gere roteiros personalizados com IA em segundos.</p>
+                    <button class="btn-secondary" id="btnUpgradeCreate">Começar Agora</button>
+                </div>
+            </aside>
+
+            <!-- Conteúdo Principal -->
+            <main class="result-content">
+                <div class="result-header">
+                    <div>
+                        <div class="badge">ROTEIRO COMPARTILHADO</div>
+                        <h1 id="itineraryTitle"></h1>
+                        <p id="itineraryDescription"></p>
+                    </div>
+                    <div class="result-actions">
+                        <button class="btn-primary" id="btnExport">📥 Exportar PDF</button>
+                        <button class="btn-secondary" id="btnShare">📤 Compartilhar</button>
+                    </div>
+                </div>
+
+                <!-- Dias do Roteiro -->
+                <div class="itinerary-days" id="itineraryDays"></div>
+
+                <!-- Hotéis Recomendados -->
+                <section class="hotels-section">
+                    <h2>Hotéis Recomendados</h2>
+                    <div class="hotels-grid" id="hotelsGrid">
+                        <div class="hotel-card">
+                            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=300&h=200&fit=crop" alt="Hotel">
+                            <h3>Hotel Luxo Premium</h3>
+                            <p class="rating">⭐⭐⭐⭐⭐ (4.9)</p>
+                            <p class="price">R$ 450/noite</p>
+                            <button class="btn-secondary">Ver Disponibilidade</button>
+                        </div>
+                        <div class="hotel-card">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=300&h=200&fit=crop" alt="Hotel">
+                            <h3>Hotel Conforto Moderado</h3>
+                            <p class="rating">⭐⭐⭐⭐ (4.5)</p>
+                            <p class="price">R$ 250/noite</p>
+                            <button class="btn-secondary">Ver Disponibilidade</button>
+                        </div>
+                        <div class="hotel-card">
+                            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=300&h=200&fit=crop" alt="Hotel">
+                            <h3>Hotel Econômico Acessível</h3>
+                            <p class="rating">⭐⭐⭐⭐ (4.3)</p>
+                            <p class="price">R$ 120/noite</p>
+                            <button class="btn-secondary">Ver Disponibilidade</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA -->
+                <div class="shared-cta">
+                    <h2>Gostou deste roteiro?</h2>
+                    <p>Crie seus próprios roteiros personalizados com IA e compartilhe com seus amigos!</p>
+                    <button class="btn-primary btn-large" id="btnCreateNow">Criar meu roteiro agora</button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal de Login/Cadastro -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="authContainer"></div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script src="js/config-firebase.js"></script>
+    <script src="js/autenticacao.js"></script>
+    <script src="js/imagens-destino.js"></script>
+    <script src="js/lugares-reais.js"></script>
+    <script src="js/exportar-pdf.js"></script>
+    <script src="js/link-roteiro.js"></script>
+    <script src="js/compartilhado.js"></script>
+    <script src="js/menu-mobile.js"></script>
+</body>
+</html>

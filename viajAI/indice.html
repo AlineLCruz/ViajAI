@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="ViajAI - Roteiros de Viagem com IA">
+    <meta property="og:description" content="Crie roteiros personalizados com inteligência artificial em segundos">
+    <meta property="og:image" content="imagens/logo.png">
+    <title>ViajAI - Roteiros de Viagem com IA</title>
+    <link rel="stylesheet" href="estilos/principal.css">
+    <link rel="stylesheet" href="estilos/pagina-inicial.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <div class="topbar">
+        <div class="container">
+            <a href="indice.html" class="logo">
+                <img src="imagens/logo.png" alt="ViajAI" class="logo-image">
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <nav class="nav">
+                    <a href="#inicio" class="nav-link">Início</a>
+                    <a href="#como-funciona" class="nav-link">Como Funciona</a>
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn-login" id="btnLogin">Entrar</button>
+                    <button class="btn-cadastro" id="btnCadastro">Cadastro</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="chip">
+                        <span class="chip-dot">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="white"/></svg>
+                        </span>
+                        Roteiros criados por IA em segundos
+                    </div>
+
+                    <h1>Seu roteiro de viagem <span class="highlight">personalizado</span> em segundos com IA</h1>
+                    <p>Diga-nos seu destino, quantos dias tem disponível e seus interesses. Nossa IA cria um roteiro completo, dia por dia, adaptado especialmente para você.</p>
+                    
+                    <form class="hero-form" id="heroForm">     
+                        <button type="button" class="btn-primary" onclick="window.location.href='criar.html'">✨ Gerar Roteiro</button>
+                    </form>
+
+                    <div class="proof-row">
+                        <div class="avatar-stack">
+                            <img src="https://i.pravatar.cc/150?img=1" alt="">
+                            <img src="https://i.pravatar.cc/150?img=2" alt="">
+                            <img src="https://i.pravatar.cc/150?img=3" alt="">
+                            <img src="https://i.pravatar.cc/150?img=4" alt="">
+                        </div>
+                        <div class="proof-text">
+                            <div class="proof-stars">★★★★★</div>
+                            <div><b>+10 mil viajantes</b> já criaram seu roteiro</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="phone">
+                        <div class="phone-screen">
+                            <div class="screen-scroll">
+                                <div class="screen-badge">ROTEIRO OTIMIZADO POR IA</div>
+                                <div class="screen-title">5 dias em Lisboa</div>
+                                <div class="screen-sub">Para 2 pessoas · Cultura, Gastronomia</div>
+
+                                <div class="screen-day-header">
+                                    <div class="screen-day-badge">1</div>
+                                    <div class="screen-day-title">Chegada e Alfama</div>
+                                </div>
+
+                                <div class="screen-activity">
+                                    <img src="" data-placeholder="Castelo de São Jorge" data-busca='["Castelo de São Jorge Lisboa","Lisboa"]' alt="Castelo de São Jorge">
+                                    <div class="screen-activity-info">
+                                        <div class="screen-activity-time">09:00</div>
+                                        <div class="screen-activity-name">Castelo de São Jorge</div>
+                                        <div class="screen-activity-loc">Alfama, Lisboa</div>
+                                    </div>
+                                </div>
+
+                                <div class="screen-activity">
+                                    <img src="" data-placeholder="Time Out Market Lisboa" data-busca='["Time Out Market Lisboa","Mercado da Ribeira","Lisboa"]' alt="Time Out Market Lisboa">
+                                    <div class="screen-activity-info">
+                                        <div class="screen-activity-time">13:00</div>
+                                        <div class="screen-activity-name">Almoço na Baixa</div>
+                                        <div class="screen-activity-loc">Time Out Market</div>
+                                    </div>
+                                </div>
+
+                                <div class="screen-day-header day2">
+                                    <div class="screen-day-badge">2</div>
+                                    <div class="screen-day-title">Belém histórico</div>
+                                </div>
+
+                                <div class="screen-activity">
+                                    <img src="" data-placeholder="Mosteiro dos Jerónimos" data-busca='["Mosteiro dos Jerónimos","Belém Lisboa"]' alt="Mosteiro dos Jerónimos">
+                                    <div class="screen-activity-info">
+                                        <div class="screen-activity-time">10:00</div>
+                                        <div class="screen-activity-name">Mosteiro dos Jerónimos</div>
+                                        <div class="screen-activity-loc">Belém, Lisboa</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-fade"></div>
+                        </div>
+
+                        <div class="floating-tag top"><span class="ico">✓</span> Roteiro pronto em 8s</div>
+                        <div class="floating-tag bottom"><span class="ico">★</span> 4.9 de satisfação</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="como-funciona" id="como-funciona">
+        <div class="container">
+            <h2>Como a mágica acontece</h2>
+            <p class="section-subtitle">Nossa inteligência artificial analisa milhões de pontos de dados para criar a agenda perfeita para seu perfil.</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">👤</div>
+                    <h3>Defina seu perfil</h3>
+                    <p>Conte-nos sobre o que você gosta e o que quer fazer em suas viagens.</p>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-icon">🤖</div>
+                    <h3>IA em ação</h3>
+                    <p>Nossa IA analisa históricos e cria sugestões autênticas para otimizar seu tempo.</p>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-icon">📋</div>
+                    <h3>Roteiro Completo</h3>
+                    <p>Receba um itinerário detalhado com atividades, restaurantes e dicas práticas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="beneficios">
+        <div class="container">
+            <div class="beneficio-destaque">
+                <div class="beneficio-card">
+                    <h3>💡 Economize horas de planejamento</h3>
+                    <p>O que levaria dias de pesquisa agora é feito em segundos. Focamos no que importa: sua experiência.</p>
+                    <div class="beneficio-buttons">
+                        <button class="btn-secondary" onclick="window.location.href='criar.html'">Comece Agora</button>
+                    </div>
+                </div>
+                <div class="beneficio-highlight">
+                    <div class="highlight-box">
+                        <h4>100%</h4>
+                        <p>PERSONALIZADO</p>
+                        <p class="highlight-desc">Cada roteiro é único, feito sob medida para seus gostos e orçamento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-wrapper">
+                <button class="features-nav prev" id="featuresPrev" aria-label="Anterior">&#8249;</button>
+                <div class="features" id="featuresTrack">
+                    <div class="feature">
+                        <div class="feature-icon">🍽️</div>
+                        <h4>Curadoria Gastronômica</h4>
+                        <p>Restaurantes selecionados conforme seu paladar e preferências dietéticas.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🏨</div>
+                        <h4>Hospedagem Inteligente</h4>
+                        <p>Sugestões de hotéis e pousadas ideais para sua viagem e orçamento.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💰</div>
+                        <h4>Otimização de Custos</h4>
+                        <p>Maximize sua experiência minimizando gastos com dicas exclusivas.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">📸</div>
+                        <h4>Pontos Instagramáveis</h4>
+                        <p>Descubra os melhores locais para fotos e momentos memoráveis.</p>
+                    </div>
+                </div>
+                <button class="features-nav next" id="featuresNext" aria-label="Próximo">&#8250;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="testimonials" id="sobre">
+        <div class="container">
+            <h2>Amado por viajantes</h2>
+            <p class="section-subtitle">Juntos, já transformamos mais de 10 mil jornadas com a ViajAI.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Mariana Silva">
+                        <div>
+                            <h4>Mariana Silva</h4>
+                            <p>Designer Gráfico</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"O roteiro para a viagem foi perfeito! Economizei semanas de pesquisa e descobri lugares que nunca teria encontrado sozinha."</p>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <img src="https://i.pravatar.cc/150?img=2" alt="Ricardo Mello">
+                        <div>
+                            <h4>Ricardo Mello</h4>
+                            <p>Executivo</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Viajo muito a trabalho e a ViajAI me ajuda a aproveitar melhor meu tempo livre. Roteiros incríveis em minutos!"</p>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <img src="https://i.pravatar.cc/150?img=3" alt="Lucas Ferreira">
+                        <div>
+                            <h4>Lucas Ferreira</h4>
+                            <p>Estudante</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Melhor do que eu esperava! Consegui uma viagem incrível com orçamento limitado. Recomendo muito!"</p>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-final">
+        <div class="container">
+            <h2>Pronto para sua próxima aventura?</h2>
+            <p>Deixe a complexidade com a gente e foque apenas em aproveitar a viagem.</p>
+            <button class="btn-primary btn-large" onclick="window.location.href='criar.html'">🚀 Começar Agora Gratuitamente</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <img src="imagens/logo-branca.png" alt="ViajAI" class="logo-image-footer">
+                    </div>
+                    <p>2026 VIAJAI</p>
+                </div>
+                <div class="footer-links">
+                    <h4></h4>
+                    <a href="#inicio">Início</a>
+                    <a href="#como-funciona">Como Funciona</a>
+                    <a href="#sobre">Sobre</a>
+                </div>
+                <div class="footer-links">
+                    <h4></h4>
+                    <a href="#privacidade">Privacidade</a>
+                    <a href="#termos">Termos de Serviço</a>
+                    <a href="#contato">Contato</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Desenvolvido com ❤️ para viajantes apaixonados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Login/Cadastro -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="authContainer"></div>
+        </div>
+    </div>
+
+    <!-- Scripts Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Scripts da Aplicação -->
+    <script src="js/config-firebase.js"></script>
+    <script src="js/autenticacao.js"></script>
+    <script src="js/imagens-destino.js"></script>
+    <script src="js/principal.js"></script>
+
+    <!-- Carrossel de Diferenciais -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('featuresTrack');
+            const prevBtn = document.getElementById('featuresPrev');
+            const nextBtn = document.getElementById('featuresNext');
+
+            if (!track || !prevBtn || !nextBtn) return;
+
+            const scrollAmount = () => track.querySelector('.feature').offsetWidth + 16;
+
+            prevBtn.addEventListener('click', () => {
+                track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+            });
+        });
+    </script>
+    <script src="js/menu-mobile.js"></script>
+</body>
+</html>

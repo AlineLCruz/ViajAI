@@ -1,0 +1,363 @@
+/* Autenticação - Estilos */
+
+.auth-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 80px);
+    background: white;
+    margin-top: 80px;
+}
+
+.auth-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+    background: white;
+}
+
+.auth-header {
+    margin-bottom: 2rem;
+}
+
+.auth-header h1 {
+    font-size: 2rem;
+    color: #2D8659;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.auth-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Formulário */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #2D8659;
+    box-shadow: 0 0 0 3px rgba(45, 134, 89, 0.1);
+}
+
+.form-group.checkbox {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.form-group.checkbox input {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.form-group.checkbox label {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.form-group.checkbox a {
+    color: #2D8659;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-group.checkbox a:hover {
+    text-decoration: underline;
+}
+
+/* Botões */
+.btn-primary {
+    padding: 0.875rem;
+    background: linear-gradient(135deg, #2D8659 0%, #1f5a3f 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(45, 134, 89, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.875rem;
+    background: white;
+    color: #333;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-google:hover {
+    border-color: #2D8659;
+    background: #f9f9f9;
+}
+
+/* Divisor */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    color: #999;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+/* Footer */
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #666;
+}
+
+.auth-footer a {
+    color: #2D8659;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Imagem Decorativa */
+.auth-image {
+    background: linear-gradient(135deg, #2D8659 0%, #B85C1F 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 3rem;
+}
+
+.image-content {
+    text-align: center;
+}
+
+.image-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+}
+
+.image-content h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.image-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Mensagens */
+.error-message {
+    background: #fee;
+    color: #c33;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #c33;
+    margin-bottom: 1rem;
+    display: none;
+}
+
+.error-message.hidden {
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.success-message {
+    background: #efe;
+    color: #3c3;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #3c3;
+    margin-bottom: 1rem;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-spinner.show {
+    display: flex;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .auth-container {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-image {
+        display: none;
+    }
+
+    .auth-card {
+        padding: 2rem;
+    }
+
+    .auth-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .auth-header p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 1.5rem;
+    }
+
+    .auth-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .auth-form {
+        gap: 1rem;
+    }
+
+    .form-group input {
+        padding: 0.65rem;
+        font-size: 0.95rem;
+    }
+
+    .btn-primary,
+    .btn-google {
+        padding: 0.75rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Link "Esqueci minha senha" */
+.esqueci-senha {
+    text-align: right;
+    margin-top: -0.5rem;
+}
+
+.esqueci-senha a {
+    color: #2D8659;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.esqueci-senha a:hover {
+    text-decoration: underline;
+}
+
+.error-message.sucesso {
+    background: #ECFDF3;
+    color: #067647;
+    border-left-color: #12B76A;
+}
+
+
+/* Cadastro concluído (substitui o formulário depois que a conta é criada) */
+.cadastro-sucesso {
+    display: none;
+    text-align: center;
+    padding: 1.5rem 0.5rem;
+}
+
+.cadastro-sucesso.show {
+    display: block;
+}
+
+.cadastro-sucesso-icone {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.cadastro-sucesso h2 {
+    color: #067647;
+    margin-bottom: 0.5rem;
+}
+
+.cadastro-sucesso p {
+    color: #475467;
+    margin-bottom: 1.5rem;
+}

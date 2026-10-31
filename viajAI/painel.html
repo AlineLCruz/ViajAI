@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Roteiros - ViajAI</title>
+    <link rel="stylesheet" href="estilos/principal.css">
+    <link rel="stylesheet" href="estilos/painel.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <div class="topbar">
+        <div class="container">
+            <a href="indice.html" class="logo">
+                <img src="imagens/logo.png" alt="ViajAI" class="logo-image">
+            </a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <nav class="nav">
+                    <a href="indice.html" class="nav-link">Início</a>
+                    <a href="painel.html" class="nav-link active">Meus Roteiros</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn-login" id="btnLogin">Login</button>
+                    <button class="btn-cadastro" id="btnCadastro">Cadastro</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar-dashboard">
+            <nav class="sidebar-nav">
+                <button type="button" class="nav-item active" data-tab="explorar">
+                    <span class="icon">🧭</span>
+                    <span>Explorar</span>
+                </button>
+                <button type="button" class="nav-item" data-tab="viagens">
+                    <span class="icon">✈️</span>
+                    <span>Minhas Viagens</span>
+                </button>
+                <button type="button" class="nav-item" data-tab="favoritos">
+                    <span class="icon">❤️</span>
+                    <span>Favoritos</span>
+                </button>
+            </nav>
+
+            <button class="btn-primary" style="width: 100%; margin-top: 32px;" id="btnLogout">Sair</button>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="dashboard-content">
+            <div class="dashboard-header">
+                <div>
+                    <h1 id="dashboardTitle">Explorar</h1>
+                    <p id="dashboardSubtitle">Sugestões para sua próxima aventura.</p>
+                </div>
+                <button class="btn-primary btn-large" id="btnCreateNew">
+                    <span>➕</span> Criar novo roteiro
+                </button>
+            </div>
+
+            <!-- Aba Explorar -->
+            <section class="tab-panel" id="panelExplorar">
+                <div class="ai-insight">
+                    <h4>🤖 Sugestão para você</h4>
+                    <p id="aiInsightText">Crie seu primeiro roteiro para começarmos a sugerir novos destinos com base no seu perfil de viagem!</p>
+                </div>
+            </section>
+
+            <!-- Aba Minhas Viagens -->
+            <section class="tab-panel hidden" id="panelViagens">
+                <div class="trips-grid" id="tripsGrid"></div>
+            </section>
+
+            <!-- Aba Favoritos -->
+            <section class="tab-panel hidden" id="panelFavoritos">
+                <div class="trips-grid" id="favoritesGrid"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal de Login/Cadastro -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div id="authContainer"></div>
+        </div>
+    </div>
+
+   <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script src="js/config-firebase.js"></script>
+    <script src="js/autenticacao.js"></script>
+    <script src="js/imagens-destino.js"></script>
+    <script src="js/painel.js"></script>
+    <script src="js/menu-mobile.js"></script>
+</body>
+</html>
