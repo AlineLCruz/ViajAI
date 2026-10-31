@@ -1,3 +1,5 @@
+# PGI - Aline Laura da Cruz e Leticia Caroline Erat
+
 # ViajAI — Gerador de Roteiros de Viagem com IA
 
 Site que gera roteiros de viagem personalizados, dia a dia, usando a API da OpenAI. O usuário informa destino, cidade de origem, duração, número de pessoas, datas, interesses e orçamento (nível e, se quiser, um valor total em reais), e recebe um roteiro com atividades, refeições e dicas, que pode salvar, favoritar, compartilhar por link e exportar em PDF.
